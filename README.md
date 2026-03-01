@@ -30,8 +30,8 @@
 
 ## 📫 Connect With Me
 
-- LinkedIn: (add your LinkedIn link)
-- Email: (add your email)
+- LinkedIn: (https://www.linkedin.com/in/hunain-siddique-73bb82377?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
+- Email: (siddiquehunain609@gmail.com)
 
 ---
 
