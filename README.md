@@ -1,16 +1,38 @@
-## Hi there 👋
+# Hi 👋 I'm Hunain Siddique
 
-<!--
-**hunain9090/hunain9090** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+💻 MERN Stack Developer  
+📍 Karachi, Pakistan  
+🚀 Passionate about building Full Stack Web Applications  
+🎯 Currently looking for Internship Opportunities  
 
-Here are some ideas to get you started:
+---
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## 🛠 Tech Stack
+
+- React.js
+- Node.js
+- Express.js
+- MongoDB
+- JWT Authentication
+- REST APIs
+
+---
+
+## 🚀 Featured Project
+
+🛒 MERN Fullstack E-commerce App  
+- JWT Authentication  
+- Admin Dashboard  
+- Product CRUD  
+- Cart & Orders  
+
+---
+
+## 📫 Connect With Me
+
+- LinkedIn: (add your LinkedIn link)
+- Email: (add your email)
+
+---
+
+⭐ Always learning and improving!
