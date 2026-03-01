@@ -1,0 +1,25 @@
+// import { createBrowserRouter } from "react-router-dom";
+import Dashboard from "../pagesAdmin/Dashboard";
+import AdminLayout from "../Layouts/AdminLayout";
+import AddRoom from "../pagesAdmin/AddRoom";
+import ShowRoom from "../pagesAdmin/ShowRooms";
+import EditRoom from "../pagesAdmin/EditRoom";
+import ShowBookings from "../pagesAdmin/ShowBookings";
+import ShowContact from "../pagesAdmin/ShowContact";
+import ShowStaff from "../pagesAdmin/ShowStaff";
+
+let adminRoutes = {
+  path: "/dashboard/",
+  element: <AdminLayout />,
+  children: [
+    { index: true, element: <Dashboard /> },
+    { path: "addroom", element: <AddRoom /> },
+    { path: "showroom", element: <ShowRoom /> },
+    { path: "editroom/:id", element: <EditRoom/> },
+    { path: "showbooking", element: <ShowBookings/> },
+    { path: "showcontact", element: <ShowContact/> },
+    { path: "showstaff", element: <ShowStaff/> },
+  ],
+};
+
+export default adminRoutes;

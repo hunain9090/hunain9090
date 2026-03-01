@@ -1,0 +1,318 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+function ViewRooms() {
+  let apiUrl = "http://localhost:5000";
+
+    let[roomsList,setRoomsList]=useState([])
+
+    const fetchRooms=async ()=>{
+        
+     try{
+        let res=await axios.get(`${apiUrl}/rooms/showrooms`)
+        console.log(res)
+if(res.data.success){
+    setRoomsList(res.data.roomsList)
+}
+
+     }   
+     catch(err){
+console.log(err.response.data.message)
+     }
+        
+    }
+    
+  
+    useEffect(()=>{
+fetchRooms()
+    },[])
+
+    
+    return (  
+
+<>
+  {/* page header */}
+  <div
+    className="rts__section page__hero__height page__hero__bg"
+    style={{ backgroundImage: "url(imgs/pages/header__bg.webp)" }}
+  >
+    <div className="container">
+      <div className="row align-items-center justify-content-center">
+        <div className="col-lg-12">
+          <div className="page__hero__content">
+            <h1 className="wow fadeInUp">Deluxe Room</h1>
+            <p className="wow fadeInUp font-sm">
+              A step up from the standard room, often with better views, more
+              space, and additional amenities.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {/* page header end */}
+  {/* advance search */}
+  <div className="rts__section advance__search__section is__page has__border pt-120 pb-60">
+    <div className="container">
+      <div className="row">
+        <form
+          action="https://html.themewant.com/moonlit/room-two.html"
+          method="post"
+          className="advance__search"
+        >
+          <div className="advance__search__wrapper wow fadeInUp">
+            {/* single input */}
+            <div className="query__input">
+              <label htmlFor="check__in" className="query__label">
+                Check In
+              </label>
+              <input
+                type="text"
+                id="check__in"
+                name="check__in"
+                placeholder="15 Jun 2024"
+                required=""
+              />
+              <div className="query__input__icon">
+                <i className="flaticon-calendar" />
+              </div>
+            </div>
+            {/* single input end */}
+            {/* single input */}
+            <div className="query__input">
+              <label htmlFor="check__out" className="query__label">
+                Check Out
+              </label>
+              <input
+                type="text"
+                id="check__out"
+                name="check__out"
+                placeholder="15 May 2024"
+                required=""
+              />
+              <div className="query__input__icon">
+                <i className="flaticon-calendar" />
+              </div>
+            </div>
+            {/* single input end */}
+            {/* single input */}
+            <div className="query__input">
+              <label htmlFor="adult" className="query__label ">
+                Adult
+              </label>
+              <select name="adult" id="adult" className="form-select">
+                <option value={1}>1 Person</option>
+                <option value={2}>2 Person</option>
+                <option value={3}>3 Person</option>
+                <option value={4}>4 Person</option>
+                <option value={5}>5 Person</option>
+                <option value={6}>6 Person</option>
+                <option value={7}>7 Person</option>
+                <option value={8}>8 Person</option>
+                <option value={9}>9 Person</option>
+              </select>
+              <div className="query__input__icon">
+                <i className="flaticon-user" />
+              </div>
+            </div>
+            {/* single input end */}
+            {/* single input */}
+            <div className="query__input">
+              <label htmlFor="child" className="query__label ">
+                Child
+              </label>
+              <select name="child" id="child" className="form-select">
+                <option value={1}>1 Child</option>
+                <option value={2}>2 Child</option>
+                <option value={3}>3 Child</option>
+                <option value={4}>4 Child</option>
+                <option value={5}>5 Child</option>
+                <option value={6}>6 Child</option>
+                <option value={7}>7 Child</option>
+                <option value={8}>8 Child</option>
+                <option value={9}>9 Child</option>
+              </select>
+              <div className="query__input__icon">
+                <i className="flaticon-user" />
+              </div>
+            </div>
+            {/* single input end */}
+            {/* submit button */}
+            <button className="theme-btn btn-style fill no-border search__btn">
+              <span>Check Now</span>
+            </button>
+            {/* submit button end */}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  {/* advance search end */}
+  {/* single rooms */}
+  <div className="rts__section pb-120">
+    <div className="container">
+      <div className="row g-30">
+       {
+roomsList.length==0?"No Rooms Found"
+:
+roomsList.map((rl)=>{
+return(<div className="col-xl-4 col-lg-6 col-md-6">
+          <div className="room__card h-100">
+            <div className="room__card__top">
+              <div className="room__card__image">
+                <a href="room-details-1.html">
+                  <img
+                    src={`${apiUrl}/uploads/${rl.roomImage}`}
+                    width={420}
+                    height={210}
+                    alt="room card"
+                  />
+                </a>
+              </div>
+              <div className="room__price__tag">
+                <span className="h6 d-block">{rl.roomPrice}$</span>
+              </div>
+            </div>
+            <div className="room__card__meta">
+              <Link to={`/roomdetail/${rl._id}`}  className="room__card__title h5">
+               {rl.roomName}
+              </Link>
+              <div className="room__card__meta__info">
+                <span>
+                  <i className="flaticon-construction" />
+                  {/* {rl.roomType.typeRoom} */}
+                </span>
+              
+              </div>
+              <p className="font-sm">
+               
+               {
+               rl.roomDescription ?? "Our rooms offer a harmonious blend of comfort and elegance,designed to provide an exceptional stay for every guest"
+               }
+               
+              </p>
+              <Link to={`/roomdetail/${rl._id}`} className="room__card__link">
+                Discover More
+              </Link>
+            </div>
+          </div>
+        </div>
+        // {/* single room end */}
+)
+
+
+})
+
+       }
+
+      </div>
+      {/* row end */}
+      <div className="load__more__link">
+        <a href="#">Load More</a>
+      </div>
+    </div>
+  </div>
+  {/* single rooms end */}
+  {/* client testimonial  */}
+  <div className="rts__section pb-120">
+    <div className="container">
+      <div className="row mb-40">
+        <div className="d-flex align-items-center justify-content-between position-relative">
+          <div className="section__topbar">
+            <span className="h6 subtitle__icon__five d-block wow fadeInUp">
+              Testimonial
+            </span>
+            <h2 className="content__title h2 lh-1 wow fadeInUp">
+              What Our Client Say
+            </h2>
+          </div>
+          <div className="slider__navigation">
+            <div className="nav__btn button-next">
+              <img src="imgs/icon/arrow-left-short.html" alt="" />
+            </div>
+            <div className="nav__btn button-prev">
+              <img src="imgs/icon/arrow-right-short.html" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-lg-11">
+          <div className="testimonial__slider overflow-hidden">
+            <div className="swiper-wrapper">
+              <div className="swiper-slide">
+                <div className="testimonial__item__content">
+                  <div className="author__icon">
+                    <img src="imgs/author/author-2x.html" alt="" />
+                  </div>
+                  <div className="testimonial__content">
+                    <div className="single__slider__item ">
+                      <div className="slider__rating mb-20">
+                        <i className="flaticon-star" />
+                        <i className="flaticon-star" />
+                        <i className="flaticon-star" />
+                        <i className="flaticon-star" />
+                        <i className="flaticon-star-sharp-half-stroke" />
+                      </div>
+                      <span className="slider__text d-block">
+                        Choosing Bokinn was one of the best decisions we've ever
+                        made. They have proven to be a reliable and innovative
+                        partner, always ready to tackle new challenges with and
+                        expertise.Their commitment to and delivering tailored.
+                      </span>
+                      <div className="slider__author__info">
+                        <div className="slider__author__info__content">
+                          <h6 className="mb-0">Sarah Martinez</h6>
+                          <span>COO of Apex Solutions</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="swiper-slide">
+                <div className="testimonial__item__content">
+                  <div className="author__icon">
+                    <img src="/imgs/author/author-5.html" alt="" />
+                  </div>
+                  <div className="testimonial__content">
+                    <div className="single__slider__item ">
+                      <div className="slider__rating mb-20">
+                        <i className="flaticon-star" />
+                        <i className="flaticon-star" />
+                        <i className="flaticon-star" />
+                        <i className="flaticon-star" />
+                        <i className="flaticon-star-sharp-half-stroke" />
+                      </div>
+                      <span className="slider__text d-block">
+                        Choosing Bokinn was one of the best decisions we've ever
+                        made. They have proven to be a reliable and innovative
+                        partner, always ready to tackle new challenges with and
+                        expertise.Their commitment to and delivering tailored.
+                      </span>
+                      <div className="slider__author__info">
+                        <div className="slider__author__info__content">
+                          <h6 className="mb-0">Sarah Martinez</h6>
+                          <span>COO of Apex Solutions</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {/* client testimonial  end */}
+</>
+
+
+
+    );
+}
+
+export default ViewRooms;

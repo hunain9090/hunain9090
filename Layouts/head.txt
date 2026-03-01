@@ -1,0 +1,94 @@
+  {/* header area */}
+  <div className="header__absolute">
+    <div className="header__top is__home__two">
+      <div className="container">
+        <div className="row justify-content-between">
+          <div className="col-lg-6 col-md-6">
+            <div className="social__links">
+              <a className="link__item gap-10" href="callto:#">
+                <i className="flaticon-phone-flip" /> +12505550199
+              </a>
+              <a className="link__item gap-10" href="mailto:#">
+                <i className="flaticon-envelope" /> moonlit@gmail.com
+              </a>
+            </div>
+          </div>
+          <div className="col-lg-6 col-md-6">
+            <div className="location">
+              <a className="link__item gap-10" href="#">
+                <i className="flaticon-marker" />
+                280 Augusta Avenue, M5T 2L9 Toronto, Canada
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header className="main__header header__function is__home__two">
+      <div className="container">
+        <div className="row">
+          <div className="main__header__wrapper">
+            <div className="main__nav">
+              <button
+                className="main__nav__toogler"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight"
+              >
+                <i className="flaticon-hamburger" />
+                <span>Menu</span>
+              </button>
+            </div>
+            <div className="main__logo">
+              <a href="index.html">
+                <img
+                  className="logo__class"
+                  src="/imgs/logo/logo__two.svg"
+                  alt="moonlit"
+                />
+              </a>
+            </div>
+            <div className="main__right">
+              <a
+                href="#"
+                className="theme-btn btn-style sm-btn border d-none d-lg-block"
+                aria-label="Login Button"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+              >
+                <span>Sign In</span>
+              </a>
+              <Link
+                
+
+                className="theme-btn btn-style sm-btn border d-none d-lg-block"
+                aria-label="Sign Up Button"
+                to="/signup"
+                // data-bs-toggle="modal"
+                // data-bs-target="#signupModal"
+              >
+                <span>==Sign Up</span>
+              </Link>
+              <a
+                href="room-details-1.html"
+                className="theme-btn btn-style sm-btn fill"
+              >
+                <span>Book Now</span>
+              </a>
+              <button
+                className="theme-btn btn-style sm-btn fill menu__btn d-lg-none"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight"
+              >
+                <span>
+                  <img src="/imgs/icon/menu-icon.svg" alt="" />
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+  {/* header area end */}
